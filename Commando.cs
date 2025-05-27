@@ -2,8 +2,8 @@ namespace Commandos.Models
 {
     public class Commando
     {
-        public string Name;
-        public string CodeName;
+        private string Name;
+        public string CodeName {get; set; } 
         public string[] Tools;
         public string Status;
 
@@ -16,6 +16,24 @@ namespace Commandos.Models
        
 
         }
+        public void SayName(string commanderRank)
+        {
+            switch (commanderRank)
+            {
+                case "GENERAL":
+                    System.Console.WriteLine(Name);
+                    break;
+
+                case "COLONEL":
+                    System.Console.WriteLine(CodeName);
+                    break;
+
+                default:
+                    System.Console.WriteLine("The information cannot be provided because it is classified information for your rank.");
+                    break;
+            }
+        }
+
 
         public void Walk()
         {
