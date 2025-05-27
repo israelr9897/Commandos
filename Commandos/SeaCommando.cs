@@ -2,7 +2,7 @@ namespace Commandos.Models
 {
     public class SeaCommando : Commando
     {
-        public SeaCommando(string name, string codeName, string[] tools, string status) : base(name, codeName, tools, status)
+        public SeaCommando(string name, string codeName, List<string> tools, string type) : base(name, codeName, tools, type)
         {
         }
         public void Swimming()

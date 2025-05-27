@@ -1,12 +1,12 @@
 namespace Commandos.Models
 {
-    public class Weapon
+    public class WeaponShoot
     {
         public string Name;
         public string Manufacturer;
         public int NumOfBalls;
 
-        public Weapon(string name, string manufacturer, int numOfBalls)
+        public WeaponShoot(string name, string manufacturer, int numOfBalls)
         {
             Name = name;
             Manufacturer = manufacturer;
@@ -14,11 +14,15 @@ namespace Commandos.Models
 
         }
 
-        public void Shoot()
+        public void UpdateBullets()
         {
             NumOfBalls -= 1;
-            System.Console.WriteLine("Shoooottttt");
         }
+        public void PrintShoot()
+        {
+            System.Console.WriteLine("Booooom");
+        }
+
     }
 
 }

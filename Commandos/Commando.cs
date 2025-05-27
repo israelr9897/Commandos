@@ -3,18 +3,17 @@ namespace Commandos.Models
     public class Commando
     {
         private string Name;
-        public string CodeName {get; set; } 
-        public string[] Tools;
-        public string Status;
+        public string CodeName;
+        public List<string> Tools = new List<string>();
+        public string Status = "";
+        public string Type;
 
-        public Commando(string name, string codeName, string[]tools, string status)
+        public Commando(string name, string codeName, List<string> tools, string type)
         {
             Name = name;
             CodeName = codeName;
             Tools = tools;
-            Status = status;
-       
-
+            Type = type;
         }
         public void SayName(string commanderRank)
         {
