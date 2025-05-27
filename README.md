@@ -1,54 +1,92 @@
 
-# 🪖 Commandos Simulation
+# 🪖 Commandos Game
 
-This is a C# console application that simulates different types of commandos (ground, air, and sea) with unique behaviors and actions.
-
----
-
-## 📁 Project Structure
-
-- `Commando.cs` – Base class representing a general commando (not included in the uploaded files).
-- `AirCommando.cs` – Derived class for an air commando (not included in the uploaded files).
-- `SeaCommando.cs` – Derived class for a sea commando, includes a custom `Swimming` method.
-- `Program.cs` – Entry point that creates instances of different commando types and executes actions.
+This project simulates a modular game system of different types of commandos, weapons, and enemies. The code is written in C# and demonstrates object-oriented programming (OOP) principles, design patterns, inheritance, and interfaces.
 
 ---
 
-## 🚀 How to Run
+## 🔧 Project Structure
 
-1. Open the project in Visual Studio or any C# IDE.
-2. Make sure all class files (`Commando.cs`, `AirCommando.cs`, `SeaCommando.cs`, `Program.cs`) are in the same namespace or properly referenced.
-3. Build the solution.
-4. Run the application.
+The system is built from several main components:
+
+### 🧍 Commandos
+- `Commando` – Base class for a soldier, includes name, code name, tools, status, and type.
+- `AirCommando` – Inherits from Commando, adds parachuting behavior.
+- `SeaCommando` – Inherits from Commando, adds swimming behavior.
+- `CommandoFactory` – Generates commandos of various types.
+
+### 👹 Enemies
+- `Enemy` – Base class with name, health, and life status.
+- `EnemyArmed` – Armed enemy holding a weapon (inherits from Enemy).
+- `EnemyZombi` – Zombie enemy with special power.
+- `EnemyFactory` – Generates enemies of different types.
+
+### 🔫 Weapons
+- `WeaponShoot` – Base class for weapons with name, manufacturer, and bullet count.
+- `M16`, `AK47` – Inherit from WeaponShoot with different behavior.
+- `IShootable` – Interface requiring shoot-related actions.
+- `WeaponFactory` – Creates weapons based on type.
+
+### 🎮 Game Engine
+- `Game` – Initializes the game with random commandos, enemies, and weapons.
+- `Program` – Main file that runs the simulation and prints commando data.
 
 ---
 
-## 🧠 How It Works
+## 🧪 Sample Usage
 
-- The `Main` method creates an array of commandos: one general, one air, and one sea.
-- Each commando has a `codeName`, `name`, and a list of `tools`.
-- The `Attack()` method is called on each commando.
-- The `SeaCommando` class includes an extra method `Swimming()` for custom behavior, although it is not called in `Main`.
+```csharp
+Game.InitGame(10, 10, 10); // Initialize game with 10 commandos, 10 weapons, 10 enemies
+
+foreach (var item in CommandoFactory.CommandoObjList)
+{
+    item.SayName("GENERAL");
+    Console.WriteLine(item.Type);
+}
+```
 
 ---
 
-## 📌 Example Output
+## 🏗️ Implemented Concepts
+
+- **Inheritance** – e.g., `Commando` → `AirCommando`
+- **Polymorphism** – Each class implements its own behavior
+- **Interfaces** – e.g., `IShootable` for flexible design
+- **Singleton Pattern** – Implemented in the `Game` class
+
+---
+
+## 📁 Suggested Folder Structure
 
 ```
-SeaCommando with codename s is active.
+/Commandos
+│
+├── Models/
+│   ├── Commando.cs
+│   ├── AirCommando.cs
+│   ├── SeaCommando.cs
+│   ├── Enemy.cs
+│   ├── EnemyArmed.cs
+│   ├── EnemyZombi.cs
+│   ├── WeaponShoot.cs
+│   ├── AK47.cs
+│   ├── M16.cs
+│   ├── Interfaces/
+│   │   ├── IShootable.cs
+│   │   ├── IBreakable.cs
+│
+├── Factories/
+│   ├── CommandoFactory.cs
+│   ├── EnemyFactory.cs
+│   ├── WeaponFactory.cs
+│
+├── Game.cs
+├── Program.cs
 ```
 
-*Note: Only the `Attack()` method is used in `Main`, so output reflects that behavior.*
-
 ---
 
-## 📎 Requirements
+## 📌 Requirements
 
-- .NET 6.0 SDK or later
-- C# compiler
-
----
-
-## 📬 Contact
-
-For improvements or issues, feel free to open a pull request or submit an issue.
+- .NET Core / .NET Framework (latest version)
+- IDE: Visual Studio / Rider / VS Code
