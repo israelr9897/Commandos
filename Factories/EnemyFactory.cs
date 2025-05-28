@@ -19,7 +19,7 @@ namespace Commandos.Models
             switch (type)
             {
                 case "Armed":
-                    WeaponShoot weapon = WeaponFactory.InitWeapon(ChoiceTypeWeapon(), 1);
+                    Weapon weapon = WeaponFactory.InitWeapon(ChoiceTypeWeapon(), 1);
                     return new EnemyArmed(ChoiceName(), weapon);
                 case "Zomb":
                     return new EnemyZombi(ChoiceName(), "Fly");

@@ -44,10 +44,10 @@ namespace Commandos.Models
             Status = "Hide";
             System.Console.WriteLine("A soldier is hiding.");
         }
-        public void Attack()
+        public void Attack(Enemy name)
         {
             Status = "Attack";
-            System.Console.WriteLine($"Commando with codename {CodeName} is active.");
+            System.Console.WriteLine($"Commando with codename {CodeName} is active to {name.Name}.");
         }
 
     }

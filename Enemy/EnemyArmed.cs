@@ -2,8 +2,8 @@ namespace Commandos.Models
 {
     public class EnemyArmed : Enemy
     {
-        public WeaponShoot WeaponType;
-        public EnemyArmed(string name, WeaponShoot weaponType) : base(name)
+        public Weapon WeaponType;
+        public EnemyArmed(string name, Weapon weaponType) : base(name)
         {
             WeaponType = weaponType;
         }
